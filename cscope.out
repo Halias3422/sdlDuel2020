@@ -1,0 +1,1326 @@
+cscope 15 $HOME/Documents/Code_Perso/C++_Code/sdl_duel               0000007409
+	@includes/duel.h
+
+1 #iâdeà
+DUEL_H
+
+
+2 
+	#DUEL_H
+
+
+	)
+
+4 
+	~"SDL2/SDL.h
+"
+
+5 
+	~"SDL2/SDL_image.h
+"
+
+6 
+	~"SDL2/SDL_mix”.h
+"
+
+7 
+	~<io¡»am
+>
+
+9 
+	ss_sdl
+
+
+11 
+SDL_Wšdow
+ *
+	mwšdow
+;
+
+12 
+SDL_R’d””
+ *
+	m»nd””
+;
+
+13 
+SDL_Textu»
+ *
+	mbufãr
+;
+
+14 
+SDL_Textu»
+ *
+	mbackground
+;
+
+15 
+SDL_Di¥ÏyMode
+ 
+	mdi¥Ïy
+;
+
+16 } 
+	tt_sdl
+;
+
+20 
+çžu»_ex™_´og¿m
+(
+¡d
+::
+¡ršg
+ 
+”rÜ
+, 
+t_sdl
+ *
+sdl
+);
+
+21 
+þ—n_sdl_¡ruù
+(
+t_sdl
+ *
+sdl
+);
+
+25 
+SDL_š™_wšdow
+(
+t_sdl
+ *
+sdl
+);
+
+26 
+SDL_š™_wšdow
+(
+t_sdl
+ *
+sdl
+);
+
+27 
+SDL_š™_»nd””
+(
+t_sdl
+ *
+sdl
+);
+
+28 
+SDL_­¶y_cÞÜ_to_»nd””
+(
+SDL_CÞÜ
+ 
+rgba
+, 
+t_sdl
+ *
+sdl
+);
+
+29 
+SDL_š™_img
+();
+
+30 
+SDL_š™_audio
+();
+
+31 
+SDL_g‘_desktÝ_di¥Ïy_mode
+(
+t_sdl
+ *
+sdl
+, 
+ÝtiÚ
+,
+
+32 
+SDL_Di¥ÏyMode
+ *
+di¥Ïy
+);
+
+33 
+SDL_»nd”_cÝy
+(
+t_sdl
+ *
+sdl
+, 
+SDL_R’d””
+ *
+»nd””
+,
+
+34 
+SDL_Textu»
+ *
+‹xtu»
+, 
+SDL_Reù
+ *
+¤c
+, SDL_Reù *
+de¡
+);
+
+35 
+SDL_»nd”_þ—r
+(
+t_sdl
+ *
+sdl
+, 
+SDL_R’d””
+ *
+»nd””
+);
+
+36 
+SDL_Textu»
+ *
+SDL_ü—‹_‹xtu»
+(
+t_sdl
+ *
+sdl
+, SDL_Textu» *
+‹xtu»
+, 
+width
+,
+
+37 
+height
+);
+
+38 
+SDL_Textu»
+ *
+SDL_lßd_‹xtu»
+(
+t_sdl
+ *
+sdl
+, 
+SDL_R’d””
+ *
+»nd””
+,
+
+39 
+SDL_Textu»
+ *
+‹xtu»
+, 
+¡d
+::
+¡ršg
+ 
+·th
+);
+
+	@src/main.cpp
+
+1 
+	~"../šþudes/du–.h
+"
+
+3 
+usšg
+ 
+Çme¥aû
+ 
+	g¡d
+;
+
+5 
+	$š™_sdl
+(
+t_sdl
+ *
+sdl
+)
+
+7 
+sdl
+->
+wšdow
+ = 
+NULL
+;
+
+8 
+sdl
+->
+»nd””
+ = 
+NULL
+;
+
+9 
+sdl
+->
+background
+ = 
+NULL
+;
+
+10 
+	`SDL_š™_wšdow
+(
+sdl
+);
+
+11 
+	`SDL_š™_»nd””
+(
+sdl
+);
+
+12 
+	`SDL_š™_audio
+();
+
+13 
+	`SDL_S‘R’d”D¿wBËndMode
+(
+sdl
+->
+»nd””
+, 
+SDL_BLENDMODE_BLEND
+);
+
+14 
+	`SDL_š™_img
+();
+
+15 
+	`SDL_g‘_desktÝ_di¥Ïy_mode
+(
+sdl
+, 0, &sdl->
+di¥Ïy
+);
+
+16 
+sdl
+->
+bufãr
+ = 
+	`SDL_ü—‹_‹xtu»
+(sdl, sdl->buffer, 720, 480);
+
+17 
+sdl
+->
+background
+ = 
+	`SDL_lßd_‹xtu»
+(sdl, sdl->
+»nd””
+, sdl->background,
+
+19 
+	`SDL_»nd”_þ—r
+(
+sdl
+, sdl->
+»nd””
+);
+
+21 
+SDL_Reù
+ 
+d¡
+;
+
+22 
+	`SDL_»nd”_þ—r
+(
+sdl
+, sdl->
+»nd””
+);
+
+23 
+	`SDL_S‘R’d”T¬g‘
+(
+sdl
+->
+»nd””
+, sdl->
+bufãr
+);
+
+24 
+	`SDL_»nd”_þ—r
+(
+sdl
+, sdl->
+»nd””
+);
+
+25 
+	`SDL_Qu”yTextu»
+(
+sdl
+->
+background
+, 
+NULL
+, NULL, &
+d¡
+.
+w
+, &d¡.
+h
+);
+
+26 
+d¡
+.
+x
+ = 0;
+
+27 
+d¡
+.
+y
+ = 0;
+
+28 
+	`SDL_»nd”_cÝy
+(
+sdl
+, sdl->
+»nd””
+, sdl->
+background
+, 
+NULL
+, &
+d¡
+);
+
+29 
+	`SDL_S‘R’d”T¬g‘
+(
+sdl
+->
+»nd””
+, 
+NULL
+);
+
+30 
+	`SDL_»nd”_cÝy
+(
+sdl
+, sdl->
+»nd””
+, sdl->
+bufãr
+, 
+NULL
+, NULL);
+
+31 
+	`SDL_R’d”P»£Á
+(
+sdl
+->
+»nd””
+);
+
+32 
+	}
+}
+
+34 
+	$þ—n_sdl_¡ruù
+(
+t_sdl
+ *
+sdl
+)
+
+36 
+	`SDL_De¡royTextu»
+(
+sdl
+->
+background
+);
+
+37 
+	`SDL_De¡royR’d””
+(
+sdl
+->
+»nd””
+);
+
+38 
+	`SDL_De¡royWšdow
+(
+sdl
+->
+wšdow
+);
+
+39 
+	`IMG_Qu™
+();
+
+40 
+	`Mix_Qu™
+();
+
+41 
+	`SDL_Qu™
+();
+
+42 
+	}
+}
+
+44 
+	$çžu»_ex™_´og¿m
+(
+¡ršg
+ 
+”rÜ
+, 
+t_sdl
+ *
+sdl
+)
+
+46 
+cout
+ << "ERROR " << 
+”rÜ
+ << " (" << 
+	`SDL_G‘E¼Ü
+(è<< ")" << 
+’dl
+;
+
+47 ià(!
+sdl
+)
+
+48 
+	`ex™
+(
+EXIT_FAILURE
+);
+
+49 
+	`þ—n_sdl_¡ruù
+(
+sdl
+);
+
+50 
+	`ex™
+(
+EXIT_FAILURE
+);
+
+51 
+	}
+}
+
+53 
+	$£t_wšdow_background
+(
+t_sdl
+ *
+sdl
+)
+
+55 ()
+sdl
+;
+
+56 
+	}
+}
+
+58 
+	$maš
+()
+
+60 
+t_sdl
+ 
+sdl
+;
+
+62 
+	`š™_sdl
+(&
+sdl
+);
+
+63 
+	`£t_wšdow_background
+(&
+sdl
+);
+
+64 
+	`SDL_D–ay
+(1000);
+
+65 
+	`þ—n_sdl_¡ruù
+(&
+sdl
+);
+
+67 
+	}
+}
+
+	@src/sdl_functions.cpp
+
+1 
+	~"../šþudes/du–.h
+"
+
+3 
+usšg
+ 
+Çme¥aû
+ 
+	g¡d
+;
+
+5 
+	$SDL_š™_wšdow
+(
+t_sdl
+ *
+sdl
+)
+
+7 ià(
+	`SDL_In™
+(
+SDL_INIT_VIDEO
+ | 
+SDL_INIT_TIMER
+ | 
+SDL_INIT_AUDIO
+) != 0)
+
+8 
+	`çžu»_ex™_´og¿m
+("In™Ÿliz©iÚ SDL WINDOW", 
+sdl
+);
+
+9 ià((
+sdl
+->
+wšdow
+ = 
+	`SDL_C»©eWšdow
+("SUCH AMAZING TETRIS, SUCH WOW",
+
+10 
+SDL_WINDOWPOS_UNDEFINED
+, SDL_WINDOWPOS_UNDEFINED, 1920, 1080,
+
+11 
+SDL_WINDOW_SHOWN
+)è=ð
+NULL
+)
+
+12 
+	`çžu»_ex™_´og¿m
+("C»©šg sdl->wšdow", 
+sdl
+);
+
+13 
+	}
+}
+
+15 
+	$SDL_š™_»nd””
+(
+t_sdl
+ *
+sdl
+)
+
+17 ià((
+sdl
+->
+»nd””
+ = 
+	`SDL_C»©eR’d””
+(sdl->
+wšdow
+, -1,
+
+18 
+SDL_RENDERER_ACCELERATED
+ | 
+SDL_RENDERER_TARGETTEXTURE
+)è=ð
+NULL
+)
+
+19 
+	`çžu»_ex™_´og¿m
+("C»©šg Wšdow R’d””", 
+sdl
+);
+
+20 
+	}
+}
+
+22 
+SDL_Textu»
+ *
+	$SDL_ü—‹_‹xtu»
+(
+t_sdl
+ *
+sdl
+, 
+SDL_Textu»
+ *
+‹xtu»
+, 
+width
+,
+
+23 
+height
+)
+
+25 ià((
+‹xtu»
+ = 
+	`SDL_C»©eTextu»
+(
+sdl
+->
+»nd””
+, 
+SDL_PIXELFORMAT_RGBA8888
+,
+
+26 
+SDL_TEXTUREACCESS_TARGET
+, 
+width
+, 
+height
+)è=ð
+NULL
+)
+
+27 
+	`çžu»_ex™_´og¿m
+("C»©šgextu»", 
+sdl
+);
+
+28  (
+‹xtu»
+);
+
+29 
+	}
+}
+
+31 
+	$SDL_­¶y_cÞÜ_to_»nd””
+(
+SDL_CÞÜ
+ 
+rgba
+, 
+t_sdl
+ *
+sdl
+)
+
+33 ià((
+	`SDL_S‘R’d”D¿wCÞÜ
+(
+sdl
+->
+»nd””
+, 
+rgba
+.
+r
+,„gba.
+g
+,„gba.
+b
+,„gba.
+a
+))
+
+35 
+	`çžu»_ex™_´og¿m
+("R’d”šg CÞÜ", 
+sdl
+);
+
+36 
+	}
+}
+
+38 
+	$SDL_š™_img
+()
+
+40 ià(!(
+	`IMG_In™
+(
+IMG_INIT_PNG
+) & IMG_INIT_PNG))
+
+41 
+cout
+ << "Fažu» In™Ÿlizšg IMAGES "<< 
+	`IMG_G‘E¼Ü
+(è<< 
+’dl
+;
+
+42 
+	}
+}
+
+44 
+	$SDL_š™_audio
+()
+
+46 ià((
+	`Mix_O³nAudio
+(44100, 
+MIX_DEFAULT_FORMAT
+, 2, 2048) != 0))
+
+47 
+cout
+ << "Fažu» In™Ÿlizšg AudiØ" << 
+	`Mix_G‘E¼Ü
+(è<< 
+’dl
+;
+
+48 
+	}
+}
+
+50 
+	$SDL_g‘_desktÝ_di¥Ïy_mode
+(
+t_sdl
+ *
+sdl
+, 
+ÝtiÚ
+,
+
+51 
+SDL_Di¥ÏyMode
+ *
+di¥Ïy
+)
+
+53 ià(
+	`SDL_G‘DesktÝDi¥ÏyMode
+(
+ÝtiÚ
+, 
+di¥Ïy
+) != 0)
+
+54 
+	`çžu»_ex™_´og¿m
+("G‘tšg di¥Ïy mode", 
+sdl
+);
+
+55 
+	}
+}
+
+57 
+SDL_Textu»
+ *
+	$SDL_lßd_‹xtu»
+(
+t_sdl
+ *
+sdl
+, 
+SDL_R’d””
+ *
+»nd””
+,
+
+58 
+SDL_Textu»
+ *
+‹xtu»
+, 
+¡ršg
+ 
+·th
+)
+
+60 ià((
+‹xtu»
+ = 
+	`IMG_LßdTextu»
+(
+»nd””
+, 
+·th
+.
+	`c_¡r
+())è=ð
+NULL
+)
+
+61 
+	`çžu»_ex™_´og¿m
+("Lßdšg ImagÚ Textu»", 
+sdl
+);
+
+62  (
+‹xtu»
+);
+
+63 
+	}
+}
+
+65 
+	$SDL_»nd”_þ—r
+(
+t_sdl
+ *
+sdl
+, 
+SDL_R’d””
+ *
+»nd””
+)
+
+67 ià((
+	`SDL_R’d”CË¬
+(
+»nd””
+)) != 0)
+
+68 
+	`çžu»_ex™_´og¿m
+("CË¬šg R’d” W™h CÞÜ", 
+sdl
+);
+
+69 
+	}
+}
+
+71 
+	$SDL_»nd”_cÝy
+(
+t_sdl
+ *
+sdl
+, 
+SDL_R’d””
+ *
+»nd””
+,
+
+72 
+SDL_Textu»
+ *
+‹xtu»
+, 
+SDL_Reù
+ *
+¤c
+, SDL_Reù *
+de¡
+)
+
+74 ià(
+	`SDL_R’d”CÝy
+(
+»nd””
+, 
+‹xtu»
+, 
+¤c
+, 
+de¡
+) != 0)
+
+75 
+	`çžu»_ex™_´og¿m
+("R’d”šg CÝy OàTextu»", 
+sdl
+);
+
+76 
+	}
+}
+
+78 
+	$SDL_»nd”_rg‘
+(
+t_sdl
+ *
+sdl
+, 
+SDL_R’d””
+ *
+»nd””
+,
+
+79 
+SDL_Textu»
+ *
+‹xtu»
+)
+
+81 ià(
+	`SDL_S‘R’d”T¬g‘
+(
+»nd””
+, 
+‹xtu»
+) != 0)
+
+82 
+	`çžu»_ex™_´og¿m
+("S‘tšg Textu»‡ R’d” T¬g‘", 
+sdl
+);
+
+83 
+	}
+}
+
+	@/usr/include/SDL2/SDL.h
+
+29 #iâdeà
+SDL_h_
+
+
+30 
+	#SDL_h_
+
+
+	)
+
+32 
+	~"SDL_maš.h
+"
+
+33 
+	~"SDL_¡dšc.h
+"
+
+34 
+	~"SDL_as£¹.h
+"
+
+35 
+	~"SDL_©omic.h
+"
+
+36 
+	~"SDL_audio.h
+"
+
+37 
+	~"SDL_þbßrd.h
+"
+
+38 
+	~"SDL_ýušfo.h
+"
+
+39 
+	~"SDL_’dŸn.h
+"
+
+40 
+	~"SDL_”rÜ.h
+"
+
+41 
+	~"SDL_ev’ts.h
+"
+
+42 
+	~"SDL_fžesy¡em.h
+"
+
+43 
+	~"SDL_gamecÚŒÞËr.h
+"
+
+44 
+	~"SDL_h­tic.h
+"
+
+45 
+	~"SDL_hšts.h
+"
+
+46 
+	~"SDL_joy¡ick.h
+"
+
+47 
+	~"SDL_lßdso.h
+"
+
+48 
+	~"SDL_log.h
+"
+
+49 
+	~"SDL_mes§gebox.h
+"
+
+50 
+	~"SDL_mu‹x.h
+"
+
+51 
+	~"SDL_pow”.h
+"
+
+52 
+	~"SDL_»nd”.h
+"
+
+53 
+	~"SDL_rwÝs.h
+"
+
+54 
+	~"SDL_£nsÜ.h
+"
+
+55 
+	~"SDL_sh­e.h
+"
+
+56 
+	~"SDL_sy¡em.h
+"
+
+57 
+	~"SDL_th»ad.h
+"
+
+58 
+	~"SDL_tim”.h
+"
+
+59 
+	~"SDL_v”siÚ.h
+"
+
+60 
+	~"SDL_video.h
+"
+
+62 
+	~"begš_code.h
+"
+
+64 #ifdeà
+__ýlu¥lus
+
+
+77 
+	#SDL_INIT_TIMER
+ 0x00000001u
+
+	)
+
+78 
+	#SDL_INIT_AUDIO
+ 0x00000010u
+
+	)
+
+79 
+	#SDL_INIT_VIDEO
+ 0x00000020u
+
+	)
+
+80 
+	#SDL_INIT_JOYSTICK
+ 0x00000200u
+
+	)
+
+81 
+	#SDL_INIT_HAPTIC
+ 0x00001000u
+
+	)
+
+82 
+	#SDL_INIT_GAMECONTROLLER
+ 0x00002000u
+
+	)
+
+83 
+	#SDL_INIT_EVENTS
+ 0x00004000u
+
+	)
+
+84 
+	#SDL_INIT_SENSOR
+ 0x00008000u
+
+	)
+
+85 
+	#SDL_INIT_NOPARACHUTE
+ 0x00100000u
+
+	)
+
+86 
+	#SDL_INIT_EVERYTHING
+ ( \
+
+87 
+SDL_INIT_TIMER
+ | 
+SDL_INIT_AUDIO
+ | 
+SDL_INIT_VIDEO
+ | 
+SDL_INIT_EVENTS
+ | \
+
+88 
+SDL_INIT_JOYSTICK
+ | 
+SDL_INIT_HAPTIC
+ | 
+SDL_INIT_GAMECONTROLLER
+ | 
+SDL_INIT_SENSOR
+ \
+
+89 )
+
+	)
+
+95 
+DECLSPEC
+ 
+SDLCALL
+ 
+SDL_In™
+(
+Ušt32
+ 
+æags
+);
+
+106 
+DECLSPEC
+ 
+SDLCALL
+ 
+SDL_In™SubSy¡em
+(
+Ušt32
+ 
+æags
+);
+
+111 
+DECLSPEC
+ 
+SDLCALL
+ 
+SDL_Qu™SubSy¡em
+(
+Ušt32
+ 
+æags
+);
+
+119 
+DECLSPEC
+ 
+Ušt32
+ 
+SDLCALL
+ 
+SDL_WasIn™
+(Ušt32 
+æags
+);
+
+125 
+DECLSPEC
+ 
+SDLCALL
+ 
+SDL_Qu™
+();
+
+128 #ifdeà
+__ýlu¥lus
+
+
+131 
+	~"þo£_code.h
+"
+
+	@
+1
+.
+1
+/usr/include
+4
+75
+includes/duel.h
+src/main.cpp
+src/sdl_functions.cpp
+/usr/include/SDL2/SDL.h

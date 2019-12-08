@@ -81,3 +81,10 @@ void			SDL_render_target(t_sdl *sdl, SDL_Renderer *renderer,
 	if (SDL_SetRenderTarget(renderer, texture) != 0)
 		failure_exit_program("Setting Texture as Render Target", sdl);
 }
+
+void			SDL_query_texture(t_sdl *sdl, SDL_Texture *texture, Uint32 *format,
+				int *access, int *w, int *h)
+{
+	if (SDL_QueryTexture(texture, format, access, w, h) != 0)
+		failure_exit_program("Query Texture", sdl);
+}

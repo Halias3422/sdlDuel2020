@@ -16,19 +16,16 @@ void			init_sdl(t_sdl *sdl)
 	sdl->buffer = SDL_create_texture(sdl, sdl->buffer, 720, 480);
 	sdl->background = SDL_load_texture(sdl, sdl->renderer, sdl->background,
 	"img/png/general_background.png");
-	SDL_render_clear(sdl, sdl->renderer);
-
-	SDL_Rect	dst;
-	SDL_render_clear(sdl, sdl->renderer);
-	SDL_SetRenderTarget(sdl->renderer, sdl->buffer);
-	SDL_render_clear(sdl, sdl->renderer);
-   SDL_QueryTexture(sdl->background, NULL, NULL, &dst.w, &dst.h);
-   dst.x = 0;
-   dst.y = 0;
-	SDL_render_copy(sdl, sdl->renderer, sdl->background, NULL, &dst);
-	SDL_SetRenderTarget(sdl->renderer, NULL);
-	SDL_render_copy(sdl, sdl->renderer, sdl->buffer, NULL, NULL);
-	SDL_RenderPresent(sdl->renderer);
+	SDL_query_texture(sdl, sdl->background, NULL, NULL, &sdl->background_dst.w,
+			&sdl->background_dst.h);
+	sdl->background_dst.x = 0;
+	sdl->background_dst.y = 0;
+	sdl->ground = SDL_load_texture(sdl, sdl->renderer, sdl->ground,
+	"img/png/ground.png");
+	SDL_query_texture(sdl, sdl->ground, NULL, NULL, &sdl->ground_dst.w,
+			&sdl->ground_dst.h);
+	sdl->ground_dst.x = 0;
+	sdl->ground_dst.y = 416;
 }
 
 void			clean_sdl_struct(t_sdl *sdl)
@@ -50,18 +47,14 @@ void			failure_exit_program(string error, t_sdl *sdl)
 	exit(EXIT_FAILURE);
 }
 
-void		set_window_background(t_sdl *sdl)
-{
-(void)sdl;	
-}
-
 int			main(void)
 {
 	t_sdl	sdl;
 
 	init_sdl(&sdl);
-	set_window_background(&sdl);
-	SDL_Delay(1000);
+	Player	yellow(&sdl, "yellow", "img/png/yellow_player.png", 50, 100);
+	Player	red(&sdl, "red", "img/png/red_player.png", 500, 100);
+	game_loop(&sdl, &yellow, &red);
 	clean_sdl_struct(&sdl);
 	return (0);
 }
