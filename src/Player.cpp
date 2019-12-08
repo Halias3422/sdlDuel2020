@@ -27,9 +27,25 @@ int		Player::get_y_pos(void)
 	return (dst.y);
 }
 
-void	Player::set_x_pos(int direction)
+int		Player::get_width(void)
 {
+	return (dst.w);
+}
+
+void	Player::set_x_pos(int direction, Player *other)
+{
+	int	other_x = other->get_x_pos();
+
 	dst.x+= 5 * direction;
+	cout << "x = " << dst.x << "w = " << dst.w << endl;
+	if (dst.x + dst.w > 720)
+		dst.x = 704;
+	if (dst.x < 0)
+		dst.x = 0;
+	if (dst.x + dst.w > other_x && dst.x < other_x)
+		dst.x = other_x - dst.w;
+	if (dst.x > other_x && dst.x < other_x + other->get_width())
+		dst.x = other_x + other->get_width();
 }
 
 void	Player::printing(t_sdl *sdl)
@@ -41,10 +57,10 @@ void	Player::moving(void)
 {
 	if (is_grounded == true)
 		return ;
-	dst.y+= 1.5 * velocity;
+	dst.y+= 1.5 * velocity / 2;
 	velocity += 1;
-	if (velocity == 16)
-		velocity = 15;
+	if (velocity == 21)
+		velocity = 20;
 	if (dst.y >= 416 - 32)
 	{
 		dst.y = 416 - 32;
@@ -57,7 +73,7 @@ void	Player::jumping(void)
 	if (is_grounded == false)
 		return ;
 	is_grounded = false;
-	velocity = -15;
+	velocity = -20;
 }
 
 Player::~Player()

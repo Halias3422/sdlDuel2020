@@ -8,6 +8,7 @@
 
 typedef struct s_sdl	t_sdl;
 
+
 class Player
 {
 	private:
@@ -24,12 +25,32 @@ class Player
 		std::string	get_name(void);
 		int			get_x_pos(void);
 		int			get_y_pos(void);
+		int			get_width(void);
 		int			get_velocity(void);
-		void		set_x_pos(int direction);
+		void		set_x_pos(int direction, Player *other);
 		void		printing(t_sdl *sdl);
 		void		moving(void);
 		void		jumping(void);
 		~Player();
+};
+
+class Projectile
+{
+	private:
+		int			x;
+		int			y;
+		int			direction;
+		SDL_Texture	*texture;
+	public:
+		Projectile(t_sdl *sdl, std::string path);
+		void	moving();
+		~Projectile();
+};
+
+struct		Bullets
+{
+	Projectile			bullet;
+	struct Bullets		*next;
 };
 
 typedef struct		s_sdl
