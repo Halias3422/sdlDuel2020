@@ -1,0 +1,44 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
+$(NAME)	Makefile	/^$(NAME): $(OBJ) Makefile$/;"	t
+$(OBJ_PATH)%.o	Makefile	/^$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp $(INC)$/;"	t
+DUEL_H	includes/duel.h	/^# define DUEL_H$/;"	d
+FLAGS	Makefile	/^FLAGS= -Wall -Werror -Wextra$/;"	m
+INC	Makefile	/^INC= $(addprefix $(INC_PATH), $(INCLUDES))$/;"	m
+INCLUDES	Makefile	/^INCLUDES= duel.h$/;"	m
+INC_PATH	Makefile	/^INC_PATH= .\/includes\/$/;"	m
+NAME	Makefile	/^NAME= duel$/;"	m
+OBJ	Makefile	/^OBJ= $(addprefix $(OBJ_PATH), $(OBJECTS))$/;"	m
+OBJECTS	Makefile	/^OBJECTS= $(SOURCES:.cpp=.o)$/;"	m
+OBJ_PATH	Makefile	/^OBJ_PATH= .\/obj\/$/;"	m
+SDL_apply_color_to_renderer	src/sdl_functions.cpp	/^void			SDL_apply_color_to_renderer(SDL_Color rgba, t_sdl *sdl)$/;"	f	typeref:typename:void
+SDL_get_desktop_display_mode	src/sdl_functions.cpp	/^void			SDL_get_desktop_display_mode(t_sdl *sdl, int option,$/;"	f	typeref:typename:void
+SDL_init_audio	src/sdl_functions.cpp	/^void			SDL_init_audio(t_sdl *sdl)$/;"	f	typeref:typename:void
+SDL_init_img	src/sdl_functions.cpp	/^void			SDL_init_img(t_sdl *sdl)$/;"	f	typeref:typename:void
+SDL_init_renderer	src/sdl_functions.cpp	/^void			SDL_init_renderer(t_sdl *sdl)$/;"	f	typeref:typename:void
+SDL_init_window	src/sdl_functions.cpp	/^void			SDL_init_window(t_sdl *sdl)$/;"	f	typeref:typename:void
+SDL_load_texture	src/sdl_functions.cpp	/^SDL_Texture		*SDL_load_texture(t_sdl *sdl, SDL_Renderer *renderer,$/;"	f	typeref:typename:SDL_Texture *
+SDL_render_clear	src/sdl_functions.cpp	/^void			SDL_render_clear(t_sdl *sdl, SDL_Renderer *renderer)$/;"	f	typeref:typename:void
+SDL_render_copy	src/sdl_functions.cpp	/^void			SDL_render_copy(t_sdl *sdl, SDL_Renderer *renderer,$/;"	f	typeref:typename:void
+SDL_render_target	src/sdl_functions.cpp	/^void			SDL_render_target(t_sdl *sdl, SDL_Renderer *renderer,$/;"	f	typeref:typename:void
+SOURCES	Makefile	/^SOURCES= main.cpp \\$/;"	m
+SRC	Makefile	/^SRC= $(addprefix $(SRC_PATH), $(SOURCES))$/;"	m
+SRC_PATH	Makefile	/^SRC_PATH= .\/src\/$/;"	m
+all	Makefile	/^all:$/;"	t
+clean	Makefile	/^clean:$/;"	t
+clean_sdl_struct	src/main.cpp	/^void			clean_sdl_struct(t_sdl *sdl)$/;"	f	typeref:typename:void
+display	includes/duel.h	/^	SDL_DisplayMode	display;$/;"	m	struct:s_sdl	typeref:typename:SDL_DisplayMode
+failure_exit_program	src/main.cpp	/^void			failure_exit_program(char *error, t_sdl *sdl)$/;"	f	typeref:typename:void
+fclean	Makefile	/^fclean: clean$/;"	t
+init_sdl	src/main.cpp	/^void			init_sdl(t_sdl *sdl)$/;"	f	typeref:typename:void
+main	src/main.cpp	/^int			main(void)$/;"	f	typeref:typename:int
+re	Makefile	/^re: fclean all$/;"	t
+renderer	includes/duel.h	/^	SDL_Renderer	*renderer;$/;"	m	struct:s_sdl	typeref:typename:SDL_Renderer *
+s_sdl	includes/duel.h	/^typedef struct		s_sdl$/;"	s
+t_sdl	includes/duel.h	/^}					t_sdl;$/;"	t	typeref:struct:s_sdl
+window	includes/duel.h	/^	SDL_Window		*window;$/;"	m	struct:s_sdl	typeref:typename:SDL_Window *
