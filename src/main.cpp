@@ -12,7 +12,6 @@ void			init_sdl(t_sdl *sdl)
 	SDL_init_audio();
 	SDL_SetRenderDrawBlendMode(sdl->renderer, SDL_BLENDMODE_BLEND);
 	SDL_init_img();
-	SDL_get_desktop_display_mode(sdl, 0, &sdl->display);
 	sdl->buffer = SDL_create_texture(sdl, sdl->buffer, 720, 480);
 	sdl->background = SDL_load_texture(sdl, sdl->renderer, sdl->background,
 	"img/png/general_background.png");

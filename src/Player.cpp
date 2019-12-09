@@ -32,12 +32,16 @@ int		Player::get_width(void)
 	return (dst.w);
 }
 
+int		Player::get_projectiles_list_size(void)
+{
+	return (projectiles.size());
+}
+
 void	Player::set_x_pos(int direction, Player *other)
 {
 	int	other_x = other->get_x_pos();
 
 	dst.x+= 5 * direction;
-	cout << "x = " << dst.x << "w = " << dst.w << endl;
 	if (dst.x + dst.w > 720)
 		dst.x = 704;
 	if (dst.x < 0)
@@ -74,6 +78,28 @@ void	Player::jumping(void)
 		return ;
 	is_grounded = false;
 	velocity = -20;
+}
+
+void	Player::shooting(t_sdl *sdl, int direction)
+{
+	Projectile	projectile(sdl, "img/png/bullet.png", dst.x, dst.y, direction);
+
+	projectiles.push_back(projectile);
+}
+
+void	Player::print_projectiles(t_sdl *sdl)
+{
+	list <Projectile>::iterator it;
+	for (it = projectiles.begin(); it != projectiles.end(); ++it)
+		it->print_projectile_on_screen(sdl);
+}
+
+void	Player::print_list(void)
+{
+	list <Projectile> :: iterator it;
+	for (it = projectiles.begin(); it != projectiles.end(); ++it)
+		cout <<  "elem x = " << it->get_x_pos() << "y = " << it->get_y_pos() << endl;
+	cout << endl;
 }
 
 Player::~Player()

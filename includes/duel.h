@@ -5,9 +5,26 @@
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_mixer.h"
 #include <iostream>
+#include <iterator>
+#include <list>
 
 typedef struct s_sdl	t_sdl;
 
+class Projectile
+{
+	private:
+		int			direction;
+		SDL_Texture	*texture;
+		SDL_Rect	dst;
+	public:
+		Projectile(t_sdl *sdl, std::string path, int pos_x, int pos_y,
+				int direction);
+		void	moving();
+		int		get_x_pos();
+		int		get_y_pos();
+		void	print_projectile_on_screen(t_sdl *sdl);
+		~Projectile();
+};
 
 class Player
 {
@@ -17,6 +34,7 @@ class Player
 		int			hp = 100;
 		int			velocity = 0;
 		bool		is_grounded = false;
+		std::list <Projectile> projectiles;
 		SDL_Rect	dst;
 
 	public:
@@ -27,31 +45,17 @@ class Player
 		int			get_y_pos(void);
 		int			get_width(void);
 		int			get_velocity(void);
+		int			get_projectiles_list_size(void);
 		void		set_x_pos(int direction, Player *other);
 		void		printing(t_sdl *sdl);
 		void		moving(void);
 		void		jumping(void);
+		void		shooting(t_sdl *sdl, int direction);
+		void		print_projectiles(t_sdl *sdl);
+		void		print_list(void);
 		~Player();
 };
 
-class Projectile
-{
-	private:
-		int			x;
-		int			y;
-		int			direction;
-		SDL_Texture	*texture;
-	public:
-		Projectile(t_sdl *sdl, std::string path);
-		void	moving();
-		~Projectile();
-};
-
-struct		Bullets
-{
-	Projectile			bullet;
-	struct Bullets		*next;
-};
 
 typedef struct		s_sdl
 {
@@ -63,6 +67,7 @@ typedef struct		s_sdl
 	SDL_Texture		*ground;
 	SDL_Rect		ground_dst;
 	SDL_DisplayMode	display;
+	SDL_Rect		disp;
 }					t_sdl;
 
 // MAIN

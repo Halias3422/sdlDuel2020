@@ -6,10 +6,16 @@ void			SDL_init_window(t_sdl *sdl)
 {
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_AUDIO) != 0)
 			failure_exit_program("Initialization SDL WINDOW", sdl);
+	SDL_get_desktop_display_mode(sdl, 0, &sdl->display);
+	sdl->disp = {0, 0, sdl->display.w, sdl->display.h};
 	if ((sdl->window = SDL_CreateWindow("SUCH AMAZING TETRIS, SUCH WOW",
-				SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1920, 1080,
-				SDL_WINDOW_SHOWN)) == NULL)
+				SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, sdl->disp.w,
+				sdl->disp.h, SDL_WINDOW_SHOWN)) == NULL)
 		failure_exit_program("Creating sdl->window", sdl);
+	while ((sdl->disp.w % 720) % 8 != 0)
+		sdl->disp.w--;
+	while ((sdl->disp.h % 480) % 8 != 0)
+		sdl->disp.h--;
 }
 
 void			SDL_init_renderer(t_sdl *sdl)
