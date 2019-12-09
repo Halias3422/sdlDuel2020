@@ -18,6 +18,8 @@ OBJECTS	Makefile	/^OBJECTS= $(SOURCES:.cpp=.o)$/;"	m
 OBJ_PATH	Makefile	/^OBJ_PATH= .\/obj\/$/;"	m
 Player	includes/duel.h	/^class Player$/;"	c
 Player	src/Player.cpp	/^Player::Player(t_sdl *sdl, string new_name, string new_texture, int pos_x, int pos_y)$/;"	f	class:Player
+Projectile	includes/duel.h	/^class Projectile$/;"	c
+Projectile	src/Projectile.cpp	/^Projectile::Projectile(t_sdl *sdl, string path, int pos_x, int pos_y, int new_direction)$/;"	f	class:Projectile
 SDL_apply_color_to_renderer	src/sdl_functions.cpp	/^void			SDL_apply_color_to_renderer(SDL_Color rgba, t_sdl *sdl)$/;"	f	typeref:typename:void
 SDL_create_texture	src/sdl_functions.cpp	/^SDL_Texture		*SDL_create_texture(t_sdl *sdl, SDL_Texture *texture, int width,$/;"	f	typeref:typename:SDL_Texture *
 SDL_get_desktop_display_mode	src/sdl_functions.cpp	/^void			SDL_get_desktop_display_mode(t_sdl *sdl, int option,$/;"	f	typeref:typename:void
@@ -39,26 +41,51 @@ background_dst	includes/duel.h	/^	SDL_Rect		background_dst;$/;"	m	struct:s_sdl	t
 buffer	includes/duel.h	/^	SDL_Texture		*buffer;$/;"	m	struct:s_sdl	typeref:typename:SDL_Texture *
 clean	Makefile	/^clean:$/;"	t
 clean_sdl_struct	src/main.cpp	/^void			clean_sdl_struct(t_sdl *sdl)$/;"	f	typeref:typename:void
+direction	includes/duel.h	/^		int			direction;$/;"	m	class:Projectile	typeref:typename:int
+disp	includes/duel.h	/^	SDL_Rect		disp;$/;"	m	struct:s_sdl	typeref:typename:SDL_Rect
 display	includes/duel.h	/^	SDL_DisplayMode	display;$/;"	m	struct:s_sdl	typeref:typename:SDL_DisplayMode
 dst	includes/duel.h	/^		SDL_Rect	dst;$/;"	m	class:Player	typeref:typename:SDL_Rect
+dst	includes/duel.h	/^		SDL_Rect	dst;$/;"	m	class:Projectile	typeref:typename:SDL_Rect
 failure_exit_program	src/main.cpp	/^void			failure_exit_program(string error, t_sdl *sdl)$/;"	f	typeref:typename:void
 fclean	Makefile	/^fclean: clean$/;"	t
+game_loop	src/game_loop.cpp	/^void		game_loop(t_sdl *sdl, Player *yellow, Player *red)$/;"	f	typeref:typename:void
+get_keyboard_state	src/game_loop.cpp	/^int			get_keyboard_state(t_sdl *sdl, Player *yellow, Player *red)$/;"	f	typeref:typename:int
 get_name	src/Player.cpp	/^string	Player::get_name(void)$/;"	f	class:Player	typeref:typename:string
+get_projectiles_list_size	src/Player.cpp	/^int		Player::get_projectiles_list_size(void)$/;"	f	class:Player	typeref:typename:int
+get_width	src/Player.cpp	/^int		Player::get_width(void)$/;"	f	class:Player	typeref:typename:int
 get_x_pos	src/Player.cpp	/^int		Player::get_x_pos(void)$/;"	f	class:Player	typeref:typename:int
+get_x_pos	src/Projectile.cpp	/^int			Projectile::get_x_pos(void)$/;"	f	class:Projectile	typeref:typename:int
 get_y_pos	src/Player.cpp	/^int		Player::get_y_pos(void)$/;"	f	class:Player	typeref:typename:int
+get_y_pos	src/Projectile.cpp	/^int			Projectile::get_y_pos(void)$/;"	f	class:Projectile	typeref:typename:int
+ground	includes/duel.h	/^	SDL_Texture		*ground;$/;"	m	struct:s_sdl	typeref:typename:SDL_Texture *
+ground_dst	includes/duel.h	/^	SDL_Rect		ground_dst;$/;"	m	struct:s_sdl	typeref:typename:SDL_Rect
 hp	includes/duel.h	/^		int			hp = 100;$/;"	m	class:Player	typeref:typename:int
 init_sdl	src/main.cpp	/^void			init_sdl(t_sdl *sdl)$/;"	f	typeref:typename:void
+is_grounded	includes/duel.h	/^		bool		is_grounded = false;$/;"	m	class:Player	typeref:typename:bool
 jumping	src/Player.cpp	/^void	Player::jumping(void)$/;"	f	class:Player	typeref:typename:void
+last_shot	includes/duel.h	/^		Uint32		last_shot = 0;$/;"	m	class:Player	typeref:typename:Uint32
 main	src/main.cpp	/^int			main(void)$/;"	f	typeref:typename:int
-moving	src/Player.cpp	/^void	Player::moving(int direction)$/;"	f	class:Player	typeref:typename:void
+moving	src/Player.cpp	/^void	Player::moving(void)$/;"	f	class:Player	typeref:typename:void
+moving	src/Projectile.cpp	/^void		moving()$/;"	f	typeref:typename:void
 name	includes/duel.h	/^		std::string name;$/;"	m	class:Player	typeref:typename:std::string
+print_list	src/Player.cpp	/^void	Player::print_list(void)$/;"	f	class:Player	typeref:typename:void
+print_on_screen	src/game_loop.cpp	/^void		print_on_screen(t_sdl *sdl, Player *yellow, Player *red)$/;"	f	typeref:typename:void
+print_projectile_on_screen	src/Projectile.cpp	/^void		Projectile::print_projectile_on_screen(t_sdl *sdl)$/;"	f	class:Projectile	typeref:typename:void
+print_projectiles	src/Player.cpp	/^void	Player::print_projectiles(t_sdl *sdl)$/;"	f	class:Player	typeref:typename:void
+printing	src/Player.cpp	/^void	Player::printing(t_sdl *sdl)$/;"	f	class:Player	typeref:typename:void
+projectiles	includes/duel.h	/^		std::list <Projectile> projectiles;$/;"	m	class:Player	typeref:typename:std::list<Projectile>
 re	Makefile	/^re: fclean all$/;"	t
 renderer	includes/duel.h	/^	SDL_Renderer	*renderer;$/;"	m	struct:s_sdl	typeref:typename:SDL_Renderer *
 s_sdl	includes/duel.h	/^typedef struct		s_sdl$/;"	s
-set_window_background	src/main.cpp	/^void		set_window_background(t_sdl *sdl)$/;"	f	typeref:typename:void
+set_window_background	src/game_loop.cpp	/^void		set_window_background(t_sdl *sdl)$/;"	f	typeref:typename:void
+set_x_pos	src/Player.cpp	/^void	Player::set_x_pos(int direction, Player *other)$/;"	f	class:Player	typeref:typename:void
+shooting	src/Player.cpp	/^void	Player::shooting(t_sdl *sdl, int direction)$/;"	f	class:Player	typeref:typename:void
 t_sdl	includes/duel.h	/^typedef struct s_sdl	t_sdl;$/;"	t	typeref:struct:s_sdl
 t_sdl	includes/duel.h	/^}					t_sdl;$/;"	t	typeref:struct:s_sdl
 texture	includes/duel.h	/^		SDL_Texture	*texture;$/;"	m	class:Player	typeref:typename:SDL_Texture *
+texture	includes/duel.h	/^		SDL_Texture	*texture;$/;"	m	class:Projectile	typeref:typename:SDL_Texture *
+update_last_shot	src/Player.cpp	/^void		Player::update_last_shot(void)$/;"	f	class:Player	typeref:typename:void
 velocity	includes/duel.h	/^		int			velocity = 0;$/;"	m	class:Player	typeref:typename:int
 window	includes/duel.h	/^	SDL_Window		*window;$/;"	m	struct:s_sdl	typeref:typename:SDL_Window *
 ~Player	src/Player.cpp	/^Player::~Player()$/;"	f	class:Player
+~Projectile	src/Projectile.cpp	/^Projectile::~Projectile()$/;"	f	class:Projectile

@@ -22,7 +22,9 @@ void		print_on_screen(t_sdl *sdl, Player *yellow, Player *red)
 	yellow->printing(sdl);
 	red->printing(sdl);
 	if (yellow->get_projectiles_list_size() > 0)
-		yellow->print_projectiles(sdl);
+		yellow->print_projectiles(sdl, red);
+	if (red->get_projectiles_list_size() > 0)
+		red->print_projectiles(sdl, yellow);
 	SDL_render_target(sdl, sdl->renderer, NULL);
 	SDL_render_copy(sdl, sdl->renderer, sdl->buffer, NULL, &sdl->disp);
 	SDL_RenderPresent(sdl->renderer);
@@ -31,7 +33,7 @@ void		print_on_screen(t_sdl *sdl, Player *yellow, Player *red)
 int			get_keyboard_state(t_sdl *sdl, Player *yellow, Player *red)
 {
 	const Uint8 *state;
-	SDL_Event	event;
+	//SDL_Event	event;
 	int		game_over = 0;
 
 		state = SDL_GetKeyboardState(NULL);
@@ -50,14 +52,28 @@ int			get_keyboard_state(t_sdl *sdl, Player *yellow, Player *red)
 			red->set_x_pos(-1, yellow);
 		if (state[SDL_SCANCODE_KP_6])
 			red->set_x_pos(1, yellow);
-		if (SDL_PollEvent(&event) && event.type == SDL_KEYDOWN)
+		if (state[SDL_SCANCODE_J])
+			yellow->shooting(sdl, -1);
+		if (state[SDL_SCANCODE_K])
+			yellow->shooting(sdl, 1);
+		if (state[SDL_SCANCODE_LEFT])
 		{
-			if (event.key.keysym.sym == SDLK_j)
+			red->shooting(sdl, -1);
+			red->print_list();
+		}
+		if (state[SDL_SCANCODE_RIGHT])
+		{
+			red->shooting(sdl, 1);
+			red->print_list();
+		}
+		/*while (SDL_PollEvent(&event))
+		{
+			if (event.key.keysym.sym == SDLK_j && event.type == SDL_KEYDOWN)
 			{
 				yellow->shooting(sdl, -1);
 				yellow->print_list();
 			}
-		}
+		}*/
 		return (game_over);
 }
 
@@ -69,8 +85,8 @@ void		game_loop(t_sdl *sdl, Player *yellow, Player *red)
 	while (game_over == 0)
 	{
 		print_on_screen(sdl, yellow, red);
-		yellow->moving();
-		red->moving();
+		yellow->moving(red);
+		red->moving(yellow);
 		game_over = get_keyboard_state(sdl, yellow, red);
 		SDL_Delay(16);
 	}

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <iterator>
 #include <list>
+#include <ctime>
 
 typedef struct s_sdl	t_sdl;
 
@@ -34,6 +35,7 @@ class Player
 		int			hp = 100;
 		int			velocity = 0;
 		bool		is_grounded = false;
+		Uint32		last_shot = 0;
 		std::list <Projectile> projectiles;
 		SDL_Rect	dst;
 
@@ -46,13 +48,18 @@ class Player
 		int			get_width(void);
 		int			get_velocity(void);
 		int			get_projectiles_list_size(void);
+		int			get_health(void);
+		int			check_collision_bullet(t_sdl *sdl, Player *other, std::list <Projectile>::iterator bullet);
+		void		loose_life(t_sdl *sdl);
+		void		update_last_shot();
 		void		set_x_pos(int direction, Player *other);
 		void		printing(t_sdl *sdl);
-		void		moving(void);
+		void		moving(Player *other);
 		void		jumping(void);
 		void		shooting(t_sdl *sdl, int direction);
-		void		print_projectiles(t_sdl *sdl);
+		void		print_projectiles(t_sdl *sdl, Player *other);
 		void		print_list(void);
+		void		reset(t_sdl *sdl);
 		~Player();
 };
 

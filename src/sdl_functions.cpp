@@ -78,7 +78,7 @@ void			SDL_render_copy(t_sdl *sdl, SDL_Renderer *renderer,
 				SDL_Texture *texture, SDL_Rect *src, SDL_Rect *dest)
 {
 	if (SDL_RenderCopy(renderer, texture, src, dest) != 0)
-		failure_exit_program("Rendering Copy Of Texture", sdl);
+		failure_exit_program("Rendering Copy Of Texture" , sdl);
 }
 
 void			SDL_render_target(t_sdl *sdl, SDL_Renderer *renderer,

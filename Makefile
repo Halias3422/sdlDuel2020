@@ -24,11 +24,11 @@ all:
 	make $(NAME)
 
 $(NAME): $(OBJ) Makefile
-	clang++ $(FLAGS) -o ${NAME} ${OBJ} -I . -lSDL2 -lSDL2_image -lSDL2_mixer -Wl,-rpath=/usr/local/lib
+	g++ $(FLAGS) -o ${NAME} ${OBJ} -I . -lSDL2 -lSDL2_image -lSDL2_mixer -Wl,-rpath=/usr/local/lib
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp $(INC)
 	if test ! -d $(dir $@); then mkdir -p $(dir $@); fi
-	clang++ $(FLAGS) -I $(INC_PATH) -o $@ -c $<
+	g++ $(FLAGS) -I $(INC_PATH) -o $@ -c $<
 
 clean:
 	rm -rf $(OBJ_PATH)
